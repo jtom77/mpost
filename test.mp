@@ -1,31 +1,38 @@
-beginfig(1);
+input boxes
+beginfig(49);
+boxit.aa(btex Node1 etex); 
+boxit.bb(btex Node2 etex); 
+boxit.cc(btex Node3 etex); 
 
-    input macros;
-    u := 1cm;
-    path c, d;
+show aa.c;
+show aa.n;
+aa.dx=3cm;
+aa.c = origin;
 
-    c := unitsquare xscaled 5u yscaled u;
-    d := unitsquare xscaled 8u yscaled u;
+% fixsize(aa);
+fixpos(aa);
 
 
-    c := c belowof d;
-    
-    fill d withcolor red;
-    fill c withcolor green;
+show aa.c;
+show aa.n;
 
-    show cycle(c);
-    
-    for i=0 upto length(c):
-        show point i of c;
-    endfor;
 
-    z0 = (0,0);
-    vardef tt(expr l) = save z0; z0 = (1,0); enddef;
+bb.n=aa.s;
+cc.nw=aa.ne;
 
-    tt("a");
+drawboxed(aa, bb, cc);
 
 
 
+circleit.ca(btex Circle1 etex);
+circleit.cb(btex Circle2 etex);
+
+ca.c = (0,-3cm);
+cb.n = ca.s;
+
+drawboxed(ca, cb);
+
+draw ca.n withpen pencircle scaled 5pt;
 
 endfig;
 end
